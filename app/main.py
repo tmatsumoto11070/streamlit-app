@@ -9,9 +9,12 @@ from scipy.optimize import minimize
 # モデル読み込み（キャッシュ付き）
 @st.cache_resource
 def load_models():
-    model_visc = joblib.load("models/model_viscosity.joblib")
-    model_abs = joblib.load("models/model_absorption.joblib")
-    model_str = joblib.load("models/model_strength.joblib")
+    base_path = os.path.dirname(__file__)  # ← app/ フォルダの絶対パス
+
+    model_visc = joblib.load(os.path.join(base_path, "models", "model_viscosity.joblib"))
+    model_abs  = joblib.load(os.path.join(base_path, "models", "model_absorption.joblib"))
+    model_str  = joblib.load(os.path.join(base_path, "models", "model_strength.joblib"))
+
     return model_visc, model_abs, model_str
 
 model_visc, model_abs, model_str = load_models()
