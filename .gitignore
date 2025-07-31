@@ -15,3 +15,11 @@ venv/
 *.log
 *.db
 *.bat
+
+# インプットと生成されたアウトプットは無視する
+input/
+output/
+Azure_supportfile/
+
+# Jupyter Notebookのキャッシュファイル
+.ipynb_checkpoints/
